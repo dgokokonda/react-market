@@ -1,0 +1,24 @@
+input[type="text"],
+input[type="password"] {
+  width: calc(100% - 10px);
+  border: none;
+  padding: 5px;
+  border-bottom: 1px solid #777;
+}
+
+input[type="submit"] {
+  background: #f1b100;
+  margin-top: 20px;
+  padding: 10px 15px;
+  border: none;
+}
+
+.fieldError {
+  color: red;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.error {
+  border-bottom: 1px solid red !important;
+}
