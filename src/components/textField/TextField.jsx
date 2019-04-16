@@ -9,10 +9,10 @@ const TextField = ({ id, name, value, type, placeholder, error, onChange, disabl
             <input
                 id={id || name}
                 type={type}
-                name={name || ''}
-                placeholder={placeholder || ''}
-                value={value || ''}
-                onChange={onChange || null}
+                name={name}
+                placeholder={placeholder}
+                value={value}
+                onChange={onChange}
                 disabled={disabled}
                 className={error ? 'error' : ''}
                 checked={checked}
@@ -39,6 +39,9 @@ TextField.propTypes = {
 };
 
 TextField.defaultProps = {
+    name: '',
+    placeholder: '',
+    value: '',
     type: 'text',
     disabled: false,
     checked: false,

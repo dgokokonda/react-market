@@ -24,14 +24,15 @@ class Form extends Component {
       isLoading: false,
       equals: false
     };
+    this.baseState = this.state;
     this.onSubmit = this.onSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
   }
 
-  isValid(fieldData, eventType='submit') {
+  isValid(fieldData, eventType = "submit") {
     const { errors, isValid, equals } = validateInput(
-      fieldData || this.state, 
-      eventType, 
+      fieldData || this.state,
+      eventType,
       this.state.errors,
       this.state.equals
     );
@@ -95,12 +96,17 @@ class Form extends Component {
     const name = e.target.name;
     let val = e.target.value;
 
-    this.isValid({name, val}, e.type);
+    this.isValid({ name, val }, e.type);
 
     if (val) {
       this.props.onReadValue({ [name]: val });
       val = "";
     }
+  }
+
+  resetForm() {
+    this.setState(this.baseState);
+    this.props.onReadValue({reset: true});
   }
 
   render() {
@@ -120,6 +126,7 @@ class Form extends Component {
       errors,
       equals
     } = this.state;
+
     return (
       <Fragment>
         <h1>Добавить новое юр.лицо</h1>
@@ -250,13 +257,13 @@ class Form extends Component {
             />
             <div>Введите пароль основного аккаунта, чтобы добавить юр.лицо</div>
             <div>
+              <button onClick={this.resetForm.bind(this)} type="button">RESET</button>
               <TextField
                 id="addUr"
                 type="submit"
                 placeholder="Пароль"
                 value="Добавить юрлицо"
                 onChange={this.onChange}
-                onBlur={this.readValue.bind(this)}
               />
             </div>
           </div>
@@ -274,6 +281,7 @@ export default connect(
     onReadValue: prop => {
       dispatch({
         type: "READ_VALUE",
+        reset: prop.reset,
         payload: prop
       });
     }
