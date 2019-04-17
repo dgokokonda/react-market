@@ -129,6 +129,7 @@ class Form extends Component {
 
     return (
       <Fragment>
+        <a href="/catalog">Catalog</a>
         <h1>Добавить новое юр.лицо</h1>
         <form id="urForm" onSubmit={this.onSubmit}>
           <div>
