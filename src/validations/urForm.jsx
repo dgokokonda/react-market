@@ -66,16 +66,10 @@ export default function validateInput(data, eventType, errors={}, equals=false) 
     }
 
     // equals checking
-    if (Validator.equals(data.urAddress, data.factAddress)) {
+    if (data.urAddress && data.factAddress && Validator.equals(data.urAddress, data.factAddress)) {
       equals = true;
     }
 
-    // if (Validator.isEmpty(data.passwordConfirmation)) {
-    //   errors.passwordConfirmation = 'This field is required';
-    // }
-    // if (!Validator.equals(data.password, data.passwordConfirmation)) {
-    //   errors.passwordConfirmation = 'Passwords must match';
-    // }
   } else if (eventType === 'blur') {
 
     switch(data.name) {
@@ -158,13 +152,3 @@ export default function validateInput(data, eventType, errors={}, equals=false) 
     equals
   }
 }
-
-// isIn(str, values) 	check if the string is in a array of allowed values.
-// isEmail
-// isLength(str [, options]) 	check if the string's length falls in a range. options is an object which defaults to {min:0, max: undefined}. Note: this function takes into account surrogate pairs.
-
-// isMobilePhone(str [, locale [, options]]) 	check if the string is a mobile phone number,
-
-// isNumeric(str [, options]) 	check if the string contains only numbers. // options is an object which defaults to {no_symbols: false}. If no_symbols is true, the validator will reject numeric strings that feature a symbol (e.g. +, -, or .).
-
-// isURL(str [, options]) 	check if the string is an URL.

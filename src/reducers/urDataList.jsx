@@ -1,14 +1,15 @@
-const initialState = [];
+const initialState = {};
 
 const urDataList = (state = initialState, action) => {
 
-  switch (action.type) {
-    case "READ_VALUE":
-      return action.reset ? initialState : [...state, action.payload];
+    switch (action.type) {
+        case "READ_VALUE":
+            return {...state, [action.payload.name]: action.payload.val};
 
-    default:
-      return state;
-  }
+        case "RESET_FORM":
+        default:
+            return state;
+    }
 };
 
 export default urDataList;
