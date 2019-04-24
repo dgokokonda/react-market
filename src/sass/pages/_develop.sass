@@ -1,0 +1,113 @@
+.dev
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-image: url('#{$img-path}develop.jpg')
+  background-position: center
+  background-size: cover
+  display: block
+
+  &__container
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%)
+    z-index: 2
+    max-width: 1000px
+    width: 100%
+    display: block
+    background: rgba(0, 0, 0, 0.75)
+    padding: 50px 30px
+    box-sizing: border-box
+    border-radius: 6px
+    @media screen and (max-width: 1120px)
+      width: calc(100% - 40px)
+
+    @media screen and (max-width: 450px)
+      padding: 20px
+    @media screen and (max-height: 500px) and (min-width: 451px)
+      height: calc(100% - 40px)
+      overflow-y: auto
+    @media screen and (max-height: 313px) and (max-width: 450px)
+      height: calc(100% - 40px)
+      overflow-y: auto
+
+
+  &__title
+    color: $yel-main
+    +positions
+    font-size: 110px
+    font-weight: 700
+    // text-align: center
+    margin: 20px 0
+    @media screen and (max-width: 450px)
+      font-size: 70px
+      margin: 10px 0
+      text-align: center
+
+  &__subtitle
+    line-height: 1.5
+    color: $yel-main
+    font-size: 18px
+    +positions
+    letter-spacing: 1px
+    // text-align: center
+    @media screen and (max-width: 450px)
+      letter-spacing: normal
+      font-size: 16px
+      line-height: normal
+      text-align: center
+  &__timer
+    margin: 10px 0
+    position: relative
+    width: 100%
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+    &--block
+      position: relative
+      flex: 0 0 25%
+      &::after
+        content: ':'
+        font-size: 100px
+        font-weight: 300
+        position: absolute
+        right: -11px
+        top: -10px
+        color: #fff
+        @media screen and (max-width: 700px)
+          font-size: 73px
+        @media screen and (max-width: 450px)
+          font-size: 50px
+          top: -6px
+          right: -6px
+
+
+      &:last-child
+        &::after
+          content: none
+
+      & > span:first-child
+        font-size: 100px
+        font-weight: 300
+        display: block
+        position: relative
+        width: 100%
+        color: #fff
+        text-align: center
+        @media screen and (max-width: 700px)
+          font-size: 73px
+        @media screen and (max-width: 450px)
+          font-size: 50px
+
+      & > span:last-child
+        +positions
+        font-size: 16px
+        font-weight: normal
+        color: $yel-main
+        text-align: center
+        margin-top: -15px
+        @media screen and (max-width: 450px)
+          margin-top: 0

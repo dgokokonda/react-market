@@ -17,7 +17,7 @@ class Form extends Component {
 
     isValid(fieldData, eventType = "submit") {
         const {errors, isValid, equals} = validateInput(
-            fieldData || this.props.inputStore.urDataList,
+            fieldData || this.props.inputStore,
             eventType,
             this.state.errors,
             this.state.equals
@@ -34,11 +34,15 @@ class Form extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        this.isValid();
+        if (this.isValid()) {
+            this.setState({
+                errors: {}
+            });
+        }
     }
 
     resetForm() {
-        const resetData = this.props.inputStore.urDataList;
+        const resetData = this.props.inputStore;
 
         Object.keys(resetData).map(prop => resetData[prop] = '');
         this.props.onResetForm(resetData);
@@ -179,16 +183,14 @@ class Form extends Component {
     }
 }
 
+const resetForm = (payload) => ({
+    type: 'RESET_FORM',
+    payload
+});
+
 export default connect(
     state => ({
-        inputStore: state,
+        inputStore: state.urDataList,
     }),
-    dispatch => ({
-        onResetForm: prop => {
-            dispatch({
-                type: "RESET_FORM",
-                payload: prop
-            });
-        }
-    })
+    {onResetForm: resetForm}
 )(Form);

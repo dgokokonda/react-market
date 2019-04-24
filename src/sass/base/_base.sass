@@ -1,0 +1,241 @@
+
+html, body
+    width: 100%
+    display: flex
+    min-height: 100vh
+    flex-direction: column
+    // @media screen and (max-width: 1150px)
+        height: auto
+body
+    font-family: 'Source Sans Pro', sans-serif
+    line-height: normal
+    background: #fff
+    min-width: 1280px
+a
+    text-decoration: none
+    &:focus
+        outline: none
+li:focus
+    outline: none
+select, input, textarea
+    border: 0
+    border-radius: 0
+    box-shadow: none
+    outline: none
+    border-style: none
+    background: 0
+
+    box-shadow: none
+    -webkit-appearance: none
+    -moz-appearance: none
+b
+  font-weight: 700
+
+=positions
+    position: relative
+    display: block
+    width: 100%
+
+=retina($pic)
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)
+    background-image: url(#{$img-path}#{$pic})
+
+// =background-pattern($size,$image,$extension)
+//   background-size: $size
+//   background-repeat: no-repeat
+//   background-position: center
+//   background-image: url(#{$img-path}#{$image}.#{$extension})
+
+=background-pattern($size,$image)
+  background-size: $size
+  background-repeat: no-repeat
+  background-position: center
+  background-image: url(#{$img-path}#{$image})
+
+
+section
+    +positions
+
+
+.clearfix
+    &::after
+        content: ''
+        display: table
+        clear: both
+    &::before
+        content: ''
+        display: table
+.wrapper
+    +positions
+    margin: 0 auto
+
+
+.footer
+    @include positions
+    // display: table-footer-group
+    // height: 100px
+    background: aqua
+    // @media screen and (max-width: 1150px)
+        display: block
+.container
+    flex-grow: 1
+    margin-top: 108px
+
+.title2
+  +positions
+  color: $navy-main
+  font-size: 30px
+  text-transform: uppercase
+  line-height: normal
+  font-weight: 700
+  font-family: 'Roboto Slab', serif
+  & > h2
+    @extend .title2
+
+
+.btn
+    display: inline-block
+    position: relative
+    padding: 0
+    box-sizing: border-box
+    cursor: pointer
+    text-align: center
+    transition: all .3s
+    &__container
+        display: block
+        text-align: center
+    &__yel
+      background: $yel-light
+      width: 142px
+      padding: 9px 0
+      font-size: 14px
+      border-radius: 2px
+      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.24), 0px 0px 2px rgba(0, 0, 0, 0.12)
+      color: $navy-main
+
+.transcluent
+    position: fixed
+    display: none
+    // display: block
+    top: 0
+    left: 0
+    background: rgba(9, 32, 53, 0.51)
+    z-index: 100
+    width: 100%
+    height: 100%
+
+.popup
+    position: fixed
+    display: none
+    // display: block
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%)
+    z-index: 101
+    padding: 20px 25px 20px 20px
+    box-sizing: border-box
+    background: #fff
+    &__close
+        position: absolute
+        top: 5px
+        right: 5px
+        display: block
+        padding: 5px
+        cursor: pointer
+        @media screen and (max-width: 1150px)
+            padding: 15px
+            top: 2px
+            right: 2px
+
+        &::after
+            content: ''
+            width: 2px
+            height: 10px
+            position: absolute
+            left: 50%
+            margin-left: -1px
+            top: 50%
+            margin-top: -5px
+            background: #000
+            transform: rotate(-45deg)
+            @media screen and (max-width: 1150px)
+                height: 20px
+                margin-top: -10px
+
+        &::before
+            content: ''
+            width: 2px
+            height: 10px
+            position: absolute
+            left: 50%
+            margin-left: -1px
+            top: 50%
+            margin-top: -5px
+            background: #000
+            transform: rotate(45deg)
+            @media screen and (max-width: 1150px)
+                height: 20px
+                margin-top: -10px
+
+.noScroll
+    margin-right: 17px
+    overflow: hidden
+    height: 100%
+    width: auto
+    @media screen and (max-width: 1180px)
+        width: 100%
+        position: fixed
+        margin-right: 0
+
+// Крошки
+.breadCrump
+    @include positions
+    padding: 0
+    box-sizing: border-box
+    color: #000
+    &__item
+        color: #000
+        float: left
+.sidebar
+    @include positions
+    float: left
+    width: 220px
+    padding-right: 16px
+    box-sizing: border-box
+    background: orange
+.mainContent
+    @include positions
+    float: right
+    width: calc(100% - 220px)
+.pagination
+    @include positions
+    width: 100%
+    text-align: center
+
+    &__item
+        display: inline-block
+        vertical-align: top
+        color: #000
+        font-size: 13px
+        text-align: center
+        margin-right: 2px
+        box-sizing: border-box
+        a
+            padding: 3px
+            box-sizing: border-box
+            min-width: 21px
+            color: #000
+            display: block
+            position: relative
+            transition: all .3s
+
+        // &.active
+
+            color: #fff
+            a
+                color: #fff
+        &--nav
+            background: #fff
+            color: #000
+            border-color: #000
+            transition: all .3s

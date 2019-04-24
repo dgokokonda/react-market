@@ -1,0 +1,306 @@
+$header-top-padding: 77px
+.header
+  position: fixed
+  width: 100%
+  display: block
+  z-index: 5
+  // &.fixed
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 50
+  &__item
+    +positions
+    display: flex
+    align-items: center
+    justify-content: space-between
+    background: #fff
+    &:first-child
+      height: 41px
+    &:last-child
+      padding: 0 60px
+      box-sizing: border-box
+      height: 67px
+  &__phone
+    // flex: 0 1 50%
+    width: calc(50% - #{$header-top-padding})
+    position: relative
+    color: $navy-main
+    font-size: 14px
+    line-height: normal
+    display: inline-flex
+    align-items: flex-end
+    justify-content: flex-end
+    margin-right: 23px
+    // padding-left: 60px
+    box-sizing: border-box
+
+
+    & > a
+      cursor: default
+      font-size: 16px
+      font-weight: bold
+      display: inline-block
+      vertical-align: text-bottom
+      color: $navy-main
+      color:
+  &__nav
+    // flex: 1 0 50%
+    width: calc(50% + #{$header-top-padding})
+    height: 100%
+    display: inline-flex
+    justify-content: space-between
+    align-items: center
+    position: relative
+    background: $grey
+    padding-right: 60px
+    box-sizing: border-box
+    & > ul
+      position: relative
+      max-width: 465px
+      // flex: 0 1 465px
+      display: inline-flex
+      justify-content: space-between
+      & > li
+        margin: 0 30px
+        position: relative
+        & > a
+          display: block
+          position: relative
+          color: $navy-main
+          font-size: 12px
+          line-height: normal
+          transition: all .3s
+  &__registration
+    position: relative
+    // flex: 0 0 116px
+    width: calc(100% - 465px)
+    text-align: right
+    & > a
+      color: $navy-main
+      font-size: 14px
+      font-weight: bold
+  &__logo
+    width: 120px
+    position: relative
+    height: 100%
+    & > a
+      display: block
+      position: relative
+      width: 100%
+      height: 100%
+      display: flex
+      align-items: center
+      justify-content: center
+      & > img
+        max-width: 100%
+        max-height: 100%
+  &__catalog
+    height: 100%
+    position: relative
+    display: inline-flex
+    justify-content: space-between
+    align-items: center
+    background: $yel-light
+    flex: 1 1 708px
+    & > ul
+      height: 100%
+      width: 100%
+      position: relative
+      display: flex
+      align-items: center
+      justify-content: space-between
+      & > li
+        position: relative
+        height: 100%
+        display: inline-flex
+        align-items: center
+        &:hover
+          background: $yel-main
+          & > ul
+            display: flex
+          & > a::after
+            opacity: 1
+            right: 24px
+        &:last-child,
+        &:nth-last-child(2)
+          & > a
+            font-weight: normal
+        & > a
+          // display: flex
+          // align-items: center
+          // height: 100%
+          display: block
+          color: #fff
+          font-size: 16px
+          font-weight: bold
+          transition: all .3s
+          padding: 0 30px
+          box-sizing: border-box
+          position: relative
+          &:hover
+            background: $yel-main
+          &:after
+            content: ''
+            width: 0
+            height: 0
+            border-style: solid
+            border-width: 0 0 6px 6px
+            border-color: transparent transparent $navy-main transparent
+            position: absolute
+            right: 32px
+            bottom: 0
+            opacity: 0
+            transition: all .3s
+
+        & > ul
+          display: none
+          background: $yel-main
+          width: 453px
+          position: absolute
+          z-index: 2
+          top: 67px
+          left: 0
+          // display: flex
+          align-items: flex-start
+          justify-content: space-between
+          flex-wrap: wrap
+          & > li
+            position: relative
+            width: 50%
+            border-bottom: 1px solid $yel-light
+            box-sizing: border-box
+            &:nth-child(2n+1)
+              border-right: 1px solid $yel-light
+            &:last-child
+              width: 100%
+              & > a
+                text-align: center
+                background: $yel-light
+                padding: 21px 0
+            // &:hover
+              & > a
+                background: $yel-light
+            & > a
+              width: 100%
+              color: #fff
+              font-size: 20px
+              font-weight: 900
+              line-height: normal
+              display: block
+              position: relative
+              padding: 32px 20px 32px 36px
+              box-sizing: border-box
+              transition: all .3s
+              &:hover
+                background: $yel-light
+
+  &__search
+    position: relative
+    flex: 1 1 286px
+    background: $yel-light
+    height: 100%
+    display: inline-flex
+    align-items: center
+    padding-left: 23px
+    padding-right: 25px
+    box-sizing: border-box
+    &--wrap
+      +positions
+      border-bottom: 1px solid #fff
+
+    &--input
+      color: $navy-main
+      font-size: 14px
+      position: relative
+      z-index: 1
+      padding-right: 21px
+      box-sizing: border-box
+      width: 100%
+      &::-webkit-input-placeholder
+        color: #fff
+        font-style: italic
+
+      &::-moz-placeholder
+        color: #fff
+        font-style: italic
+
+      &:-moz-placeholder
+        color: #fff
+        font-style: italic
+
+      &:-ms-input-placeholder
+        color: #fff
+        font-style: italic
+    &--submit
+      width: 20px
+      height: 20px
+      position: absolute
+      z-index: 2
+      right: 0
+      top: 0
+      cursor: pointer
+      +background-pattern(16px, 'search-header.svg')
+
+
+.aside
+  position: fixed
+  right: 0
+  top: 41px
+  background: $navy-main
+  width: 60px
+  z-index: 10
+  display: block
+  white-space: nowrap
+  & > ul
+    +positions
+    & > li
+      +positions
+      height: 63px
+      transition: all .3s
+      & > span
+        height: 100%
+        z-index: 2
+        background-color: $navy-main
+        +positions
+      &:last-child,
+      &:nth-last-child(2)
+        & > span
+          background-color: #0D0F26
+      &:hover
+        & > span
+          background-color: $navy-light
+        & > a
+          right: 60px
+          
+          width: auto
+          min-width: 133px
+          font-size: 16px
+          line-height: normal
+          padding: 0 5px 0 43px
+          box-sizing: border-box
+          border-radius: 100px 0 0 100px
+          background: $navy-light
+      & > a
+        
+        display: flex
+        align-items: center
+        transition: all .3s
+        color: #fff
+        width: 0
+        font-size: 0
+        line-height: 0
+        padding: 0
+        height: 100%
+        position: absolute
+        right: -100%
+        top: 0
+        z-index: -1
+
+
+  &__enter
+    +background-pattern(26px, 'aside-personal.svg')
+  &__question
+    +background-pattern(26px, 'aside-question.svg')
+  &__message
+    +background-pattern(26px, 'aside-message.svg')

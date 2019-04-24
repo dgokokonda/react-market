@@ -11,7 +11,7 @@ class TextField extends Component {
     this.props.isValid({ name, val }, e.type);
   }
 
-  onChange({ target }) {
+  onChange = ({ target }) => {
     const rulesProps = this.props.rules || {};
     const rules = Object.keys( rulesProps);
     const name = target.name;
@@ -63,7 +63,7 @@ class TextField extends Component {
       equals=false,
       errors={}
     } = this.props;
-    const inpData = this.props.inputStore.urDataList || '';
+    const inpData = this.props.inputStore || '';
     const error = errors ? errors[name] : '';
 
     return (
@@ -74,7 +74,7 @@ class TextField extends Component {
           name={name}
           placeholder={placeholder}
           value={inpData[name]}
-          onChange={this.onChange.bind(this)}
+          onChange={this.onChange}
           disabled={disabled}
           className={error ? "error" : ""}
           checked={equals}
@@ -111,16 +111,14 @@ TextField.defaultProps = {
   onChange: null
 };
 
+const readValue = (payload) => ({
+  type: 'READ_VALUE',
+  payload
+});
+
 export default connect(
   state => ({
-    inputStore: state
+    inputStore: state.urDataList
   }),
-  dispatch => ({
-    onReadValue: prop => {
-      dispatch({
-        type: "READ_VALUE",
-        payload: prop
-      });
-    }
-  })
+  {onReadValue: readValue}
 )(TextField);

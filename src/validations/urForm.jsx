@@ -106,14 +106,22 @@ export default function validateInput(data, eventType, errors={}, equals=false) 
         break;
 
       case 'urAddress':
+        errors.urAddress = Validator.isEmpty(data.val) ? errors.urAddress : '';
         equals = Validator.equals(data.val, document.querySelector('input[name="factAddress"]').value);
         break;
 
       case 'factAddress':
+        errors.factAddress = Validator.isEmpty(data.val) ? errors.factAddress : '';
         equals = Validator.equals(data.val, document.querySelector('input[name="urAddress"]').value);
         break;
 
       case 'urPhone':
+      case 'phone':
+        if (!Validator.isEmpty(data.val) && !Validator.isLength(data.val, {min: 11, max: 11})) {
+          errors[data.name] = 'Введите корректный номер телефона';
+        } else {
+          errors[data.name] = '';
+        }
         break;
 
       case 'fio':
@@ -125,6 +133,8 @@ export default function validateInput(data, eventType, errors={}, equals=false) 
         break;
 
       case 'position':
+      case 'password':
+        errors[data.name] = Validator.isEmpty(data.val) ? errors[data.name] : '';
         break;
 
       case 'email':
@@ -133,12 +143,6 @@ export default function validateInput(data, eventType, errors={}, equals=false) 
         } else {
           errors.email = '';
         }
-        break;
-
-      case 'phone':
-        break;
-
-      case 'password':
         break;
 
       default:

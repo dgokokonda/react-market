@@ -1,0 +1,75 @@
+.footer
+  +positions
+  background: $navy-main
+  &__container
+    padding: 50px 105px 65px 0
+    box-sizing: border-box
+    +positions
+  &__search
+    position: relative
+    width: 100%
+    display: flex
+    justify-content: flex-end
+    margin-bottom: 50px
+    &--form
+      +positions
+      max-width: 286px
+      border-bottom: 1px solid #fff
+    &--input
+      color: #fff
+      font-size: 14px
+      position: relative
+      z-index: 1
+      padding-right: 21px
+      box-sizing: border-box
+      width: 100%
+      &::-webkit-input-placeholder
+        color: #fff
+        font-style: italic
+
+      &::-moz-placeholder
+        color: #fff
+        font-style: italic
+
+      &:-moz-placeholder
+        color: #fff
+        font-style: italic
+
+      &:-ms-input-placeholder
+        color: #fff
+        font-style: italic
+    &--submit
+      width: 20px
+      height: 20px
+      position: absolute
+      z-index: 2
+      right: 0
+      top: 0
+      cursor: pointer
+      +background-pattern(16px, 'search-header.svg')
+  &__list
+    position: relative
+    width: 100%
+    display: flex
+    justify-content: space-between
+    & > li
+      flex: 1 1 20%
+      min-width: 200px
+      color: #fff
+      font-size: 14px
+      padding-right: 10px
+      box-sizing: border-box
+      &:first-child
+        padding-top: 26px
+        text-align: center
+      & > ul
+        +positions
+        & > li
+          +positions
+          min-height: 38px
+          height: 100%
+          padding-bottom: 5px
+          box-sizing: border-box
+          & > a
+            color: #fff
+            font-size: 12px

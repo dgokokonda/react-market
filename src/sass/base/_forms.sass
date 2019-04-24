@@ -1,0 +1,290 @@
+.forms
+  +positions
+  padding: 35px 0
+  &__hidden
+    display: none
+  &__row
+    +positions
+    margin-bottom: 35px
+    padding: 0 35px 32px
+    box-sizing: border-box
+    &::after
+      content: ''
+      width: 24px
+      height: 19px
+      position: absolute
+      right: 35px
+      z-index: 2
+      top: 0
+      opacity: 0
+      display: block
+      visibility: hidden
+      pointer-events: none
+
+    & > .btn
+      width: 296px
+    &--inline
+      display: flex
+      justify-content: space-between
+    &--btnContainer
+      margin-top: 77px
+      margin-bottom: 0
+      padding-bottom: 0
+      display: flex
+      justify-content: center
+    &--mrb11
+      margin-bottom: 11px
+    &.ok
+      &::after
+        +background-pattern(24px, 'input-ok.svg')
+        opacity: 1
+        visibility: visible
+      .inputTxt
+        border-width: 2px
+      .forms__loadFile--input
+        display: none
+      .forms__loadFile--previews
+        display: block
+    &.error
+      &::after
+        +background-pattern(18px, 'input-error.svg')
+        opacity: 1
+        visibility: visible
+      .inputTxt
+        border-color: $error
+        border-width: 2px
+      .forms__warning
+        color: $error
+  &__cell
+    position: relative
+    flex: 0 0 33%
+
+  &__warning
+    font-style: italic
+    font-size: 16px
+    position: absolute
+    bottom: 0
+    left: 46px
+    color: $grey-input
+    // display: none
+
+  &__title
+    color: $grey-input
+    font-weight: bold
+    font-size: 20px
+    border-bottom: 1px solid #C4C4C4
+    padding-bottom: 15px
+    padding-left: 37px
+  &__addDigitalSignature
+    color: $grey-input
+    font-size: 18px
+    font-weight: 600
+    text-decoration: underline
+    padding-left: 62px
+    box-sizing: border-box
+    position: relative
+    cursor: pointer
+    &::before
+      content: ''
+      position: absolute
+      left: 10px
+      top: 50%
+      margin-top: -18.5px
+      width: 37px
+      height: 37px
+      border-radius: 50%
+      background-color: #fff
+      border: 1px solid #000
+      transition: all .3s
+      +background-pattern(23px, 'addfile.svg')
+    &.hide::before
+      content: '\2014'
+      background-image: none
+      color: #000
+      font-size: 18px
+      font-family: Times New Roman
+      display: flex
+      align-items: center
+      justify-content: center
+  &__loadFile
+    display: flex
+    justify-content: space-between
+    position: relative
+    border-bottom: 1px solid #C4C4C4
+    padding-bottom: 9px
+    &--name
+      position: relative
+      width: calc(100% - 100px)
+    &--title
+      font-style: italic
+      font-size: 18px
+      color: $grey-input
+    &--input
+      width: 100px
+      position: relative
+    &--previews
+      position: relative
+      width: 100%
+      padding-top: 18px
+      display: none
+      & > li
+        position: relative
+        background: #C4C4C4
+        display: flex
+        align-items: center
+        justify-content: center
+        width: 160px
+        height: 112px
+        & > img
+          max-width: 100%
+          max-height: 100%
+          z-index: 1
+          position: relative
+    &--remove
+      cursor: pointer
+      position: absolute
+      top: 0
+      right: -24px
+      width: 18px
+      height: 18px
+      +background-pattern(100%, 'remove-file.svg')
+      z-index: 2
+  &__separator
+    width: 100%
+    height: 1px
+    background: #C4C4C4
+    position: relative
+    // margin: 33px 0
+    margin-bottom: 38px
+
+  &__label
+    font-style: italic
+    font-size: 18px
+    color: $grey-input
+    flex: 0 0 auto
+    position: relative
+    // display: inline
+  &__name
+    font-size: 18px
+    color: $grey-input
+    flex: 0 0 auto
+    font-weight: bold
+    position: relative
+    padding-left: 22px
+    box-sizing: border-box
+    // display: inline
+
+
+
+.inputTxt
+  +positions
+  border-bottom: 1px solid #000
+  box-sizing: border-box
+  padding: 0 25px 9px 11px
+  box-sizing: border-box
+  z-index: 1
+  color: $grey-input
+  font-size: 18px
+  font-weight: 600
+  &:focus
+    border-width: 2px
+  &::-webkit-input-placeholder
+    color: $grey-input
+    font-style: italic
+    font-weight: normal
+
+  &::-moz-placeholder
+    color: $grey-input
+    font-style: italic
+    font-weight: normal
+
+  &:-moz-placeholder
+    color: $grey-input
+    font-style: italic
+    font-weight: normal
+
+  &:-ms-input-placeholder
+    color: $grey-input
+    font-style: italic
+    font-weight: normal
+
+.inputRadio
+  display: none
+  transition: all .3s
+  &:checked + .inputRadio__label::before
+    background: $yel-light
+    background: -moz-radial-gradient(center, ellipse cover, $yel-light 55%, transparent 45%)
+    background: -webkit-radial-gradient(center, ellipse cover, $yel-light 55%, transparent 45%)
+    background: radial-gradient(ellipse at center, $yel-light 55%, transparent 45%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1A1D3A', endColorstr='#F1EEEC',GradientType=1 )
+  &__label
+    cursor: pointer
+    position: relative
+    display: block
+    color: $navy-main
+    font-size: 20px
+    font-weight: bold
+    padding-left: 40px
+    box-sizing: border-box
+    transition: all .3s
+    &::before
+      content: ''
+      position: absolute
+      left: 0
+      top: 50%
+      margin-top: -14.5px
+      width: 29px
+      height: 29px
+      border: 1px solid #000
+      border-radius: 100%
+      z-index: 2
+      transition: all .3s
+
+.inputCheckbox
+  display: none
+  transition: all .3s
+  &:checked + .inputCheckbox__label::before
+    +background-pattern(25px, 'check.svg')
+
+  &__label
+    cursor: pointer
+    position: relative
+    display: block
+    color: $navy-main
+    font-size: 20px
+    font-weight: bold
+    padding-left: 54px
+    box-sizing: border-box
+    &::before
+      content: ''
+      position: absolute
+      left: 0
+      top: 50%
+      margin-top: -17px
+      width: 34px
+      height: 34px
+      border: 1px solid #000
+      background-color: #fff
+      z-index: 2
+      transition: all .3s
+
+.inputFile
+  display: none
+  &__label
+    cursor: pointer
+    color: $navy-main
+    font-weight: 600
+    font-size: 18px
+    position: relative
+    text-decoration: underline
+    padding-left: 24px
+    box-sizing: border-box
+    &::before
+      content: ''
+      position: absolute
+      left: 0
+      top: 50%
+      margin-top: -9px
+      width: 18px
+      height: 18px
+      +background-pattern(18px, 'login.svg')

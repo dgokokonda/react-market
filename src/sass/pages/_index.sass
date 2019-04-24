@@ -1,0 +1,229 @@
+.i
+  &-about
+    +background-pattern(593px, 'geo-lines1.svg')
+    background-position: -49px 67%
+  &-video
+    padding: 0 60px
+    box-sizing: border-box
+    // margin-top: 108px
+    // &::after
+      content: ''
+      width: 593px
+      height: 478px
+      position: absolute
+      bottom: 0
+      left: 0
+      z-index: 0
+    &__container
+      // height: 585px
+      z-index: 2
+      +positions
+      // overflow: hidden
+      & > video
+        width: 100%
+        // height: 100%
+        @supports (object-fit: cover)
+          object-fit: cover
+  &-whatisit
+    +positions
+    &__container
+      padding: 34px 56px 22px 128px
+      box-sizing: border-box
+      +positions
+      display: flex
+      align-items: flex-start
+      justify-content: space-between
+    &__wrap
+      position: relative
+      // width: 100%
+      flex: 0 0 55%
+      // max-width: 60%
+      min-width: 600px
+    &__text
+      +positions
+      & > p
+        font-size: 16px
+        line-height: 24px
+        color: #000
+        +positions
+        margin: 32px 0
+    &__reclame
+      position: relative
+      flex: 0 0 271px
+      &--item
+        position: relative
+        width: 100%
+        &:first-child
+          margin-bottom: 15px
+        & > img
+          width: 100%
+  &-principles
+    +positions
+    +background-pattern(cover, 'principles-bg.jpg')
+    +retina('principles-bg@2x.jpg')
+    background-attachment: fixed
+    &::after
+      content: ''
+      height: 59px
+      width: 100%
+      position: absolute
+      bottom: 0
+      left: 0
+      background: #fff
+      z-index: 0
+    &__container
+      padding: 55px 10px 0 0
+      box-sizing: border-box
+      +positions
+      z-index: 2
+    &__title
+      padding-left: 155px
+      box-sizing: border-box
+      padding-bottom: 31px
+      & > h2
+        color: #000
+    &__list
+      +positions
+      background: $light-grey
+      padding: 36px 70px 52px 153px
+      box-sizing: border-box
+      max-width: 50%
+      min-width: 718px
+      &::before
+        content: ''
+        position: absolute
+        width: 1px
+        height: 100%
+        top: 0
+        left: 99px
+        background: $yel-light
+      & > li
+        +positions
+        margin-bottom: 46px
+        color: #000
+        font-size: 16px
+        line-height: 24px
+        &::before
+          content: ''
+          position: absolute
+          top: -3px
+          background-color: $light-grey
+        &:last-child
+          margin-bottom: 0
+      &--opened
+        &::before
+          +background-pattern(33px, 'open-door.svg')
+          width: 33px
+          height: 33px
+          left: -70px
+      &--legality
+        &::before
+          +background-pattern(29px, 'law.svg')
+          width: 29px
+          height: 33px
+          left: -68px
+      &--efficiency
+        &::before
+          +background-pattern(33px, 'clock.svg')
+          width: 33px
+          height: 33px
+          left: -74px
+      &--comfort
+        &::before
+          +background-pattern(27px, 'armchair.svg')
+          width: 27px
+          height: 27px
+          left: -68px
+      &--first
+        color: $grey-txt
+        font-size: 18px
+        font-weight: 300
+        line-height: 27px
+      &--title
+        color: #474747
+        font-weight: bold
+        font-size: 24px
+        +positions
+      &--txt
+        +positions
+  &-reclame
+    +positions
+    margin: 104px 0
+    &__container
+      +positions
+      padding: 0 71px 0 56px
+      box-sizing: border-box
+      & > img
+        width: 100%
+  &-quality
+    +positions
+    &__container
+      +positions
+    &__title
+      text-align: center
+      padding-bottom: 12px
+    &__txt
+      text-align: center
+      +positions
+      max-width: 850px
+      margin: 0 auto 30px
+    &__callback
+      position: relative
+      width: 100%
+      display: flex
+      // align-items: stretch
+      justify-content: center
+      min-height: 210px
+      height: 100%
+      &--left
+        flex: 0 0 50%
+        position: relative
+        +background-pattern(cover, 'field.jpg')
+        background-position: center top
+        +retina('field@2x.jpg')
+        // height: 100%
+      &--right
+        position: relative
+        flex: 0 0 50%
+        padding: 34px 56px 43px 56px
+        box-sizing: border-box
+        background: $navy-main
+      &--txt
+        color: #fff
+        font-size: 14px
+        line-height: 21px
+        +positions
+        padding-bottom: 40px
+  &-registration
+    +positions
+    max-width: 66%
+    min-width: 840px
+    background-color: #C4C4C4
+    padding: 34px 74px 54px
+    box-sizing: border-box
+    margin: -56px 0 106px
+    // +background-pattern(593px, 'geo-lines2.svg')
+    // background-repeat: repeat
+    &__title
+      text-align: center
+    &__container
+      margin-top: 42px
+      position: relative
+      display: flex
+      align-items: flex-start
+      justify-content: space-between
+    &__btn
+      width: calc(33% - 20px)
+      margin: 0 20px
+      cursor: pointer
+      position: relative
+      height: 146px
+      display: inline-flex
+      align-items: center
+      justify-content: center
+      color: #000
+      font-weight: bold
+      font-size: 24px
+      text-transform: uppercase
+      border: 1px solid $navy-main
+      box-sizing: border-box
